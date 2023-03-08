@@ -7,6 +7,8 @@ require_once('ServiceProduct.php'); // Serviço de CRUD
 /** CRUD: list, save, update e delete
  * $service->list(): Seleciona tudo e retorna uma array associativo - fetchAll(\PDO::FETCH_ASSOC)
  * $service->save(): Salva novo produto e retorna último ID inserido
+ * $service->update(): Atualiza um registro com base no idproducts(PK) e retorna booleano(1 || 0)
+ * $service->delete(): Deleta um registro com base no idproducts(PK) e retorna booleano(1 || 0)
  */
 
 $db = new Conn('localhost', 'test_oo', 'root', '');
@@ -30,3 +32,6 @@ $golBolinha->setName('Volkswagen Gol')->setDesc('Gol bolinha de 40cv')->setId(6)
 $golService = new ServiceProduct($db, $golBolinha);
 // print_r($golService->update());
 print_r($golService->list());
+
+
+print_r($service->delete(3));  // Retorna 1 true mesmo que não tenha mais registro com id 3
