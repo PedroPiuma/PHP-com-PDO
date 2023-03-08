@@ -14,5 +14,19 @@ $product = new Product;
 $product->setName('HTML course')->setDesc('Aulas de HTML 5');
 $service = new ServiceProduct($db, $product);
 
-print_r($service->save());
+// print_r($service->save());
 // print_r($service->list());
+
+
+$car = new Product;
+$car->setName('Chevrolet Astra')->setDesc('Carro hatch de 4 portas de 127cv');
+$carService = new ServiceProduct($db, $car);
+// print_r($carService->save());
+// print_r($carService->list());
+
+$golBolinha = new Product;
+$golBolinha->setName('Volkswagen Gol')->setDesc('Gol bolinha de 40cv')->setId(6);
+// print_r($golBolinha);
+$golService = new ServiceProduct($db, $golBolinha);
+// print_r($golService->update());
+print_r($golService->list());
