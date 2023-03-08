@@ -8,10 +8,8 @@ try {
     // $stmt = $conn->exec($query);
 
     $stmt = $conn->query($query);
-    $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    print_r($list);
-    // echo $list[0]['name'];
-    // print_r($list);
+    $list = $stmt->fetch(PDO::FETCH_OBJ);
+    print_r($list->name);
 } catch (PDOException $erro) {
     echo "Error! Message: " . $erro->getMessage() . " Code: " . $erro->getCode();
 }
