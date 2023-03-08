@@ -13,6 +13,10 @@ class ServiceProduct
 
     public function list()
     {
+        $query = "SELECT * from `products`";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
     public function save()
     {
