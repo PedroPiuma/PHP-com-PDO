@@ -32,7 +32,7 @@ class Product implements IProduct
     }
     public function setDesc($newDesc)
     {
-        $this->id = $newDesc;
+        $this->desc = $newDesc;
         return $this;
     }
 }
