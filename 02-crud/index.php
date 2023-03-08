@@ -19,7 +19,6 @@ $service = new ServiceProduct($db, $product);
 // print_r($service->save());
 // print_r($service->list());
 
-
 $car = new Product;
 $car->setName('Chevrolet Astra')->setDesc('Carro hatch de 4 portas de 127cv');
 $carService = new ServiceProduct($db, $car);
@@ -31,7 +30,8 @@ $golBolinha->setName('Volkswagen Gol')->setDesc('Gol bolinha de 40cv')->setId(6)
 // print_r($golBolinha);
 $golService = new ServiceProduct($db, $golBolinha);
 // print_r($golService->update());
-print_r($golService->list());
+// print_r($golService->list());
 
+// print_r($service->delete(3));  // Retorna 1 true mesmo que não tenha mais registro com id 3
 
-print_r($service->delete(3));  // Retorna 1 true mesmo que não tenha mais registro com id 3
+print_r($service->find(2));

@@ -18,6 +18,17 @@ class ServiceProduct
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    public function find($id)
+    {
+        $query = "SELECT * from `products` WHERE idproducts=:id";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(":id", $id);
+        $stmt->execute();
+        return $stmt->fetch(\PDO::FETCH_ASSOC);
+    }
+
+
     public function save()
     {
         $query = "INSERT into `products` (`name`, `desc`) VALUES (:name, :desc)";
@@ -27,6 +38,7 @@ class ServiceProduct
         $stmt->execute();
         return $this->db->lastInsertId();
     }
+
     public function update()
     {
         $query = "UPDATE `products` SET `name`=?, `desc`=? WHERE `idproducts`=?";
@@ -37,6 +49,7 @@ class ServiceProduct
         $ret = $stmt->execute();
         return $ret;
     }
+
     public function delete(int $id)
     {
         $query = "DELETE from `products` WHERE `idproducts`=:id";
